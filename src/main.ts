@@ -2,12 +2,13 @@
 
 import arg from "arg";
 import dotenv from "dotenv";
-import { exec } from "./commands";
-import { config } from "./lib/config";
-import { enableDebug } from "./lib/debugger";
 
 // TODO: Load `.env` file only in development environment.
 dotenv.config();
+
+import { exec } from "./commands";
+import { config } from "./lib/config";
+import { enableDebug } from "./lib/debugger";
 
 const args = arg(
   {

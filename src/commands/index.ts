@@ -8,6 +8,7 @@ import { preview } from "./preview";
 import { publish } from "./publish";
 import { pull } from "./pull";
 import { version } from "./version";
+import { tweet } from "./tweet"; // 新しく追加する行
 
 export const exec = async (commandName: string, commandArgs: string[]) => {
   const commands = {
@@ -19,6 +20,7 @@ export const exec = async (commandName: string, commandArgs: string[]) => {
     pull,
     help,
     version,
+    tweet, // 新しく追加する行
     "--help": help,
     "--version": version,
   };
