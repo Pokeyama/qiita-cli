@@ -10,6 +10,18 @@ inputs:
   qiita-token:
     required: true
     description: "Qiita API token"
+  twitter-api-key: # TwitterのAPIキーを追加
+    required: false
+    description: "Twitter API key"
+  twitter-api-secret: # TwitterのAPIシークレットを追加
+    required: false
+    description: "Twitter API secret"
+  twitter-access-token: # Twitterのアクセス・トークンを追加
+    required: false
+    description: "Twitter access token"
+  twitter-access-secret: # Twitterのアクセス・シークレットを追加
+    required: false
+    description: "Twitter access secret"
 
 runs:
   using: "composite"
@@ -18,7 +30,7 @@ runs:
       with:
         node-version: "20.16.0"
     - name: Install qiita-cli
-      run: npm install -g @qiita/qiita-cli@v1.5.0
+      run: npm install
       shell: bash
     - name: Publish articles
       run: qiita publish --all --root ${{ inputs.root }}
