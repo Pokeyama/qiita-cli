@@ -6,6 +6,7 @@ import { getFileSystemRepo } from "../lib/get-file-system-repo";
 import { getQiitaApiInstance } from "../lib/get-qiita-api-instance";
 import { syncArticlesFromQiita } from "../lib/sync-articles-from-qiita";
 import { validateItem } from "../lib/validators/item-validator";
+import { tweet } from "../lib/tweet"; // インポート
 import {
   Item,
   QiitaForbiddenError,
@@ -115,6 +116,13 @@ export const publish = async (argv: string[]) => {
       });
       await fileSystemRepo.updateItemUuid(item.name, responseItem.id);
 
+      // post is X.
+      const tweetMessage = `記事を投稿しました！\n\n${responseItem.title}\n${responseItem.url}\n#Qiita`;
+      try {
+        await tweet([tweetMessage]);
+      } catch (err) {
+        console.error("Failed to post on Twitter:", err);
+      }
       console.log(`Posted: ${item.name} -> ${responseItem.id}`);
     }
 

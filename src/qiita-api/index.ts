@@ -26,6 +26,7 @@ export interface Item {
   created_at: string;
   updated_at: string;
   slide: boolean;
+  url?: string;
 }
 
 export class QiitaApi {
