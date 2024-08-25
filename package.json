@@ -19,8 +19,7 @@
   },
   "files": [
     "dist/**/*",
-    "README.md",
-    "src"
+    "README.md"
   ],
   "devDependencies": {
     "@emotion/react": "^11.13.0",
