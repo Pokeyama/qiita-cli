@@ -30,7 +30,7 @@ runs:
       with:
         node-version: "20.16.0"
     - name: Install qiita-cli
-      run: npm install -g github:Pokeyama/qiita-cli#dev
+      run: HUSKY=0 npm install -g github:Pokeyama/qiita-cli#dev
       shell: bash
     - name: Publish articles
       run: qiita publish --all --root ${{ inputs.root }}
