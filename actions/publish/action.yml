@@ -36,7 +36,7 @@ runs:
       run: ls -al
       shell: bash
     - name: Publish articles
-      run: node dist/main.js publish --all --root ${{ inputs.root }}
+      run: qiita publish --all --root ${{ inputs.root }}
       env:
         QIITA_TOKEN: ${{ inputs.qiita-token }}
         TWITTER_API_KEY: ${{ inputs.twitter-api-key }}
