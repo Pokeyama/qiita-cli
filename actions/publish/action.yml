@@ -33,7 +33,7 @@ runs:
       run: npm install -g --verbose github:Pokeyama/qiita-cli#dev
       shell: bash
     - name: Debug
-      run: ls -al
+      run: which qiita
       shell: bash
     - name: Publish articles
       run: qiita publish --all --root ${{ inputs.root }}
