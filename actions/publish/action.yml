@@ -33,7 +33,7 @@ runs:
       run: npm install -g github:Pokeyama/qiita-cli#dev
       shell: bash
     - name: Publish articles
-      run: qiita publish --all --root ${{ inputs.root }}
+      run: npx qiita publish --all --root ${{ inputs.root }}
       env:
         QIITA_TOKEN: ${{ inputs.qiita-token }}
         TWITTER_API_KEY: ${{ inputs.twitter-api-key }}
