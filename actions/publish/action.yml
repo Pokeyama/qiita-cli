@@ -30,13 +30,13 @@ runs:
       with:
         node-version: "20.16.0"
     - name: Install qiita-cli
-      run: npm install -g github:Pokeyama/qiita-cli#dev
+      run: npm install github:Pokeyama/qiita-cli#dev
       shell: bash
     - name: Debug
       run: ls -al
       shell: bash
     - name: Publish articles
-      run: qiita publish --all --root ${{ inputs.root }}
+      run: npx qiita publish --all --root ${{ inputs.root }}
       env:
         QIITA_TOKEN: ${{ inputs.qiita-token }}
         TWITTER_API_KEY: ${{ inputs.twitter-api-key }}
