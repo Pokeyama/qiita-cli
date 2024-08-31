@@ -119,6 +119,7 @@ export const publish = async (argv: string[]) => {
       // post is X.
       const tweetMessage = `記事を投稿しました！\n\n${responseItem.title}\n${responseItem.url}\n#Qiita`;
       try {
+        console.log(`private is : ${responseItem.private}`);
         if(!responseItem.private){
           await tweet([tweetMessage]);
         }
