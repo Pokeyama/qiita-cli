@@ -10,18 +10,18 @@ inputs:
   qiita-token:
     required: true
     description: "Qiita API token"
-  twitter-api-key: # TwitterのAPIキーを追加
-    required: false
-    description: "Twitter API key"
-  twitter-api-secret: # TwitterのAPIシークレットを追加
-    required: false
-    description: "Twitter API secret"
-  twitter-access-token: # Twitterのアクセス・トークンを追加
-    required: false
-    description: "Twitter access token"
-  twitter-access-secret: # Twitterのアクセス・シークレットを追加
-    required: false
-    description: "Twitter access secret"
+  # twitter-api-key: # TwitterのAPIキーを追加
+  #   required: false
+  #   description: "Twitter API key"
+  # twitter-api-secret: # TwitterのAPIシークレットを追加
+  #   required: false
+  #   description: "Twitter API secret"
+  # twitter-access-token: # Twitterのアクセス・トークンを追加
+  #   required: false
+  #   description: "Twitter access token"
+  # twitter-access-secret: # Twitterのアクセス・シークレットを追加
+  #   required: false
+  #   description: "Twitter access secret"
 
 runs:
   using: "composite"
@@ -39,10 +39,10 @@ runs:
       run: npx qiita publish --all --root ${{ inputs.root }}
       env:
         QIITA_TOKEN: ${{ inputs.qiita-token }}
-        TWITTER_API_KEY: ${{ inputs.twitter-api-key }}
-        TWITTER_API_SECRET: ${{ inputs.twitter-api-secret }}
-        TWITTER_ACCESS_TOKEN: ${{ inputs.twitter-access-token }}
-        TWITTER_ACCESS_SECRET: ${{ inputs.twitter-access-secret }}
+        # TWITTER_API_KEY: ${{ inputs.twitter-api-key }}
+        # TWITTER_API_SECRET: ${{ inputs.twitter-api-secret }}
+        # TWITTER_ACCESS_TOKEN: ${{ inputs.twitter-access-token }}
+        # TWITTER_ACCESS_SECRET: ${{ inputs.twitter-access-secret }}
       shell: bash
     - name: Commit and push diff # Not executed recursively even if `push` is triggered. See https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
       run: |
