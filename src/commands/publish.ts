@@ -119,7 +119,9 @@ export const publish = async (argv: string[]) => {
       // post is X.
       const tweetMessage = `記事を投稿しました！\n\n${responseItem.title}\n${responseItem.url}\n#Qiita`;
       try {
-        await tweet([tweetMessage]);
+        if(!responseItem.private){
+          await tweet([tweetMessage]);
+        }
       } catch (err) {
         console.error("Failed to post on Twitter:", err);
       }
